@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Controllers | Dragon-Ring</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="canonical" href="https://sphix.readthedocs.io/en/latest/index.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    
+  </style>
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="stylesheet" href="_static/css.css" type="text/css" /> 
+    <link rel="stylesheet" href="_static/css.css" type="text/css" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Dragon-Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                1.0 (alpha)
+              </div>
+            
+          
+
+          
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              <div class="local-toc">
+                <ul>
+                  <li>
+                  <a href='route.html'>(1) Route </a>
+                  </li>
+                  <li>
+                  <a href='template.html'>(2) Templates </a>
+                  </li>
+                  <li>
+                  <a href='controllers.html'>(3) Controllers </a>
+                  </li>
+                  <li>
+                  <a href='wwmysql.html'>(4) Working with MYSQL </a>
+                  </li>
+                  <li>
+                  <a href='useflash.html'>(5) Using Flash </a>
+                  </li>
+                  <li>
+                  <a href='getandpost.html'>(6) GET and POST</a>
+                  </li>
+                </ul>
+
+              </div>
+             
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Dragon-Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+  
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Controllers</li>
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-read-the-docs">
+  <strong>(3) Controllers :-</strong><br>
+  <strong>we will talk about :-</strong><br>
+
+  <ul style="margin-top:4%;">
+    <li>Controllers Using .</li>
+    <li>Main Directory .</li>
+    <li>How to Send variables from Controllers To Templates ?</li>
+
+  </ul>
+  <br>
+    <strong>Controllers Using</strong><br>
+    <p>The Controllers directory in the folder "WebSite" as there you can put all controllers.</p>
+    <br>
+    <p>As we learned we have to import System.Web Packages at the first line of any controller.<br>
+    <strong>Main Directory</strong><br>
+    <p> The main directory for controllers is starting from 'website' folder and you do not have to write the full path ...<br>
+    So In this example I put the hello.ring in the folder website so in the route.ring we have
+    <pre>
+#!ring -cgi 
+load 'main/base.ring'
+import system.Web
+app.route('HelloWorld',:ringfile,"hello.ring")</pre>
+    <br>And I put the hello.html in the folder website/templates so I have to put this code in website/hello.ring
+  <code style="width:100% .section;">
+    <pre>
+import system.Web
+dring{
+        html(template('hello.html',null))
+     }</pre>
+  </code><br>
+In the WebSite/templates/hello.html I have this code 
+ <code style="width:100% .section;">
+    <pre>
+&lt;h1&gt;Hello World From Template .&lt;/h1&gt;</pre>
+  </code><br>
+  it displayed the same result ...
+     </p><br>
+     <strong>How to Send variables from Controllers To Templates ?</strong><br> 
+<p>I will use the same files names ...</p>
+<p>There is many ways to send Variables to templates </p>
+<h2>(1) The First Way</h2>
+<p>Define Your Variables in the route.ring file</p>
+    <strong>In the route.ring we have this code</strong><br>  
+    <pre>
+#!ring -cgi 
+load 'main/base.ring'
+import system.Web
+name = "Mohannad"
+app.route('HelloWorld',:ringfile,"hello.ring")</pre>
+  <br>
+<strong>In the website/hello.ring we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre>
+import system.Web
+dring{
+        html(template('hello.html',self))
+     }</pre>
+  </code><br>
+<strong>In the website/templates/hello.html we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre>
+Hello {%=name%}</pre>
+  </code><br>
+  The Page returns :- <br>
+  <code style="width:100% .section;">
+    <pre>
+Hello Mohannad</pre>
+  </code><br>
+  <p>Note:- You can Define Your Variables in route.ring as null and edit them in the controller as in this example :-</p>
+    <strong>In the route.ring we have this code</strong><br>  
+    <pre>
+#!ring -cgi 
+load 'main/base.ring'
+import system.Web
+name = null
+app.route('HelloWorld',:ringfile,"hello.ring")</pre>
+  <br>
+<strong>In the website/hello.ring we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre>
+import system.Web
+name = "Mohannad"
+dring{
+        html(template('hello.html',self))
+     }</pre>
+  </code><br>
+<strong>In the website/templates/hello.html we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre>
+Hello {%=name%}</pre>
+  </code><br>
+  The Page returns :- <br>
+  <code style="width:100% .section;">
+    <pre>
+Hello Mohannad</pre>
+</code>
+  <h2>(2) Send Variables Using Functions</h2><br>
+  <h3>Use SendVars(var_Name) function to send Variables .</h3>
+<h4>The var_Name Can be a list of Variables,but you have to put them as a string like this example </h4>
+
+   <br>
+    <strong>In the route.ring we have this code</strong><br>  
+    <pre>
+#!ring -cgi 
+load 'main/base.ring'
+import system.Web
+app.route('test_template',:ringfile,"test_vars.ring")</pre>
+  <br>
+<strong>In the website/test_vars.ring we have this code</strong><br>
+  <code style="width:100% .section;">
+<pre>
+import system.Web
+SendVars('name')
+SendVars('age')
+SendVars('salary')
+/*or*/
+SendVars(['name','age','salary'])
+dring{
+  Name = 'Mohannad' 
+  Age = 20
+  Salary = 1200
+  html(template('test_vars.html',self))
+}
+</pre>
+  </code><br>
+<strong>In the WebSite/templates/test_vars.html we have this code</strong><br>
+  <code style="width:100% .section;">
+<pre>Hello {%=name%} , Your age is :- {%=age%} ,Your salary is :- {%=salary%}$.</pre>
+  </code><br>
+The Page returns :- <br>
+  <code style="width:100% .section;">
+    <pre>
+Hello Mohannad , Your age is :- 20 ,Your salary is :- 1200$.</pre>
+  </code><br>
+  <h2>(3) Send Variables Using Classes</h2><br> 
+    <strong>In the route.ring we have this code</strong><br>  
+    <pre>
+#!ring -cgi 
+load 'main/base.ring'
+import system.Web
+app.route('test_template',:ringfile,"test_vars.ring")</pre>
+  <br>
+<strong>In the website/test_vars.ring we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre>
+import system.Web
+new test_vars{start()} 
+class test_vars
+   name = "Mohannad"
+   func start
+   dring{
+   html(template('test_vars.html',this))
+     }</pre>
+  </code><br>
+<strong>In the WebSite/templates/test_vars.html we have this code</strong><br>
+  <code style="width:100% .section;">
+<pre>Hello {%=name%}</pre>
+  </code><br>
+The Page returns :- <br>
+  <code style="width:100% .section;">
+    <pre>
+Hello Mohannad</pre>
+  </code><br>
+    <p>I hope it was easy for you ...</p>
+  
+</div>
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+      <span class="commit">
+        
+        Dragon-Ring <code>2021-2022</code>.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> uspreing a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
