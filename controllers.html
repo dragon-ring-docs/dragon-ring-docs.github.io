@@ -157,7 +157,7 @@
     So In this example I put the hello.ring in the folder website so in the route.ring we have
     <pre>
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 app.route('HelloWorld',:ringfile,"hello.ring")</pre>
     <br>And I put the hello.html in the folder website/templates so I have to put this code in website/hello.ring
@@ -183,7 +183,7 @@ In the WebSite/templates/hello.html I have this code
     <strong>In the route.ring we have this code</strong><br>  
     <pre>
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 name = "Mohannad"
 app.route('HelloWorld',:ringfile,"hello.ring")</pre>
@@ -210,7 +210,7 @@ Hello Mohannad</pre>
     <strong>In the route.ring we have this code</strong><br>  
     <pre>
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 name = null
 app.route('HelloWorld',:ringfile,"hello.ring")</pre>
@@ -242,7 +242,7 @@ Hello Mohannad</pre>
     <strong>In the route.ring we have this code</strong><br>  
     <pre>
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 app.route('test_template',:ringfile,"test_vars.ring")</pre>
   <br>
@@ -276,7 +276,7 @@ Hello Mohannad , Your age is :- 20 ,Your salary is :- 1200$.</pre>
     <strong>In the route.ring we have this code</strong><br>  
     <pre>
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 app.route('test_template',:ringfile,"test_vars.ring")</pre>
   <br>

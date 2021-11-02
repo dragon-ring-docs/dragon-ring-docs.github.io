@@ -166,7 +166,7 @@
     </p>
     <p><pre style="background-color:yellow;">
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 ADD2DB('employees(id , name , salary)' , [1, "Mohannad" , 1800] )</pre>
   <br>
@@ -176,7 +176,7 @@ For example :-
   <code style="width:100% .section;">
     <pre style="background-color:yellow;">
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 /* This code has written in route.ring (just for testing) */
 mQuery('SELECT * From employees ;')
@@ -205,7 +205,7 @@ next</pre>
   <code style="width:100% .section;">
     <pre style="background-color:yellow;">
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 /* This code has written in route.ring (just for testing) */
 mDELETE('employees' , 'id' , 1 ) 
@@ -223,7 +223,7 @@ mDELETE('employees' , 'id' , 1 )
   </ul>
     <pre style="background-color:yellow;">
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 /* This code has written in route.ring (just for testing) */
 table_columns = [ "id" , "name" , "salary" ] 

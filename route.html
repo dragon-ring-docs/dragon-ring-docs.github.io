@@ -167,7 +167,7 @@
   <br>
   The Second thing make sure to load this file and import the web packages :-<br>
   <code>
-  load 'main/base.ring'<br>
+  load 'dragon-ring.ring'<br>
   import system.Web
   </code>
   <br>
@@ -175,7 +175,7 @@
   <code style="width:100% .section;">
     <pre style="background-color:yellow;">
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 app.route('index',:htmlstr,"&lt;h1&gt;The Index Page&lt;/h1&gt;"</pre>
   </code>
@@ -200,7 +200,7 @@ app.route('index',:htmlstr,"&lt;h1&gt;The Index Page&lt;/h1&gt;"</pre>
     <strong>(1) First Way :-</strong><br/>
 <pre style="background-color:yellow !important;">
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 app.route('helloworld',:htmlstr,"&lt;h1&gt;Hello World&lt;/h1&gt;")</pre>
   <br> 
@@ -208,7 +208,7 @@ app.route('helloworld',:htmlstr,"&lt;h1&gt;Hello World&lt;/h1&gt;")</pre>
    <code style="width:100% .section;">
     <pre style="background-color:yellow;">
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 app.route('HelloWorld',:ringfunc,"hello()")
 func hello()
@@ -220,7 +220,7 @@ func hello()
    <code style="width:100% .section;">
     <pre style="background-color:yellow;">
 #!ring -cgi 
-load 'main/base.ring'
+load 'dragon-ring.ring'
 import system.Web
 app.route('HelloWorld',:ringfile,"hello.ring")</pre>
   </code><br>
