@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Dragon-Ring documentation</title>
+  <title>Urls Controlling | Dragon-Ring</title>
   
 
   
@@ -15,13 +15,16 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
     <link rel="canonical" href="https://sphix.readthedocs.io/en/latest/index.html" />
 
   
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
+  <style type="text/css">
+    
+  </style>
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -34,14 +37,14 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
-      <link rel="stylesheet" href="_static/css.css" type="text/css" /> 
+    <link rel="stylesheet" href="_static/css.css" type="text/css" /> 
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-       <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+          <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
@@ -93,22 +96,16 @@
     $('.mynav').load('nav.html');
   </script>
    
-
       <div class="wy-nav-content">
         
         <div class="rst-content">
-        
+  
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Dragon-Ring documentation</li>
-    
-    
-
-    
+      <li>Using Flashs</li>
   </ul>
 
   
@@ -118,66 +115,72 @@
            <div itemprop="articleBody">
             
   <div class="section" id="welcome-to-read-the-docs">
-    Welcome to the "Dragon-Ring" Web Framework Documentation.
+  <strong>(5) Urls Controlling :-</strong><br>
+  <strong>we will talk about :-</strong><br>
+
+  <ul style="margin-top:4%;">
+    <li>Url_for() function.</li>
+    <li>MainUrl Variable.</li>
+    <li>Use Url_for() example.</li>
+  </ul>
+
+  <br>
+  <strong>(1) Url_for() function.</strong>
+    <br><p>Url_for(cRoute_Name) <br>
+      this function take one parameter as a string (Not the full url just the route name ...).   
+    </p>
+
+<strong>(2) MainUrl Variable.</strong><br>
+<p>The defult Value for this Variable is (http://localhost/) </p>
+<strong>Note:-</strong><p>When you set this variable end it with back slash ('/') like in this example</p><br>
+  <strong>(3) Use Url_for() example.</strong><br/>
+ <strong>In the route.ring we have this code</strong><br> 
+    <pre style="background-color:yellow;">
+#!ring -cgi 
+load 'dragon-ring.ring'
+import system.Web
+MainUrl = 'http://192.168.0.108/'
+app.route('testurls',:ringfile,"testurls.ring")
+app.route('testurls2',:ringfile,"testurls2.ring")</pre>
+<br>
+<strong>In the website/testurls.ring we have this code :</strong>
+  <code style="width:100% .section;">
+<pre style="background-color:yellow;">
+import system.web
+dring{
+  html(template('testurls.html',self))
+}</pre>
+  </code><br>
+  <strong>In the website/testurls2.ring we have this code :</strong>
+  <code style="width:100% .section;">
+<pre style="background-color:yellow;">
+import system.web
+dring{
+  html(template('testurls2.html',self))
+}</pre>
+  </code><br>
+<strong>In the website/templates/testurls.html we have this code</strong><br>
+  <code style="width:100% .section;">
+<pre style="background-color:yellow;">{%=showflash()%}
+  &lt;div class='justify-content-center'&gt;
+    &lt;a class="btn btn-primary" href="{%=url_for('TestUrls2')%}"&gt;Go to TestUrls2 Page&lt;/a&gt;
+  &lt;/div&gt;</pre>
+  </code><br>
+  <strong>In the website/templates/testurls2.html we have this code</strong><br>
+  <code style="width:100% .section;">
+<pre style="background-color:yellow;">{%=showflash()%}
+  &lt;div class='justify-content-center'&gt;
+    &lt;a class="btn btn-primary" href="{%=url_for('TestUrls')%}"&gt;Go to TestUrls Page&lt;/a&gt;
+  &lt;/div&gt;</pre>
+  </code><br>
+  <p><strong>Note:-</strong> You can set one MainUrl (one domain name)</p>
+
+  <br>
+  <p><strong>Note:-</strong>You have to Set the value of MainUrl Variable in the top of route.ring file</p>
+  <br>
+    <p>I hope it was easy for you ...</p>
+  
 </div>
-<hr />
-<h3>How to install ?</h3>
- <strong>(1) Use this command for installation:-</strong>
- <pre> ringpm install dragonframework from mohannad-aldulaimi</pre><br>
- <strong>(2) Run The Dragon-Ring installation:-</strong>
- <pre>ringpm run dragonframework</pre><br>
-<strong>(3) Create a new file for example 'test.ring'</strong><br><br>
-<strong>(4) Write this Code in the file 'test.ring' :-</strong>
-<pre>load 'dragon-ring.ring'
-getstartedwithdragonring() </pre><br>
-<strong>(5) Run the file Using RingNotePad or by using this command :-</strong>
-<pre>ring test.ring</pre><br>
-<h3>Run:-</h3>
-<strong>To run just use this command :-</strong>
-<pre>ring manage.ring run</pre><br>
-<h3>What Is New:-</h3>
-<strong>alpha Version 1.0.2</strong>
-<pre style="background-color:#fff !important;">1. Add manage.ring so that you can manage your project easily.
-2. Add [run] command to control the server :-
-    * run:startserver
-    * run:stopserver
-    * run:restartserver 
-3. Add the ability to run the project from any path without Ring notepad 
-  or Xampp or Apache [only for windows]</pre>
-<br>
-<br>
-<br>
-  <div>
-    <strong>Documentation Content:-</strong>
- <br><br>
-        <ul>
-                  <li>
-                  <a href='route.html'>(1) Route </a>
-                  </li>
-                  <li>
-                  <a href='template.html'>(2) Templates </a>
-                  </li>
-                  <li>
-                  <a href='controllers.html'>(3) Controllers </a>
-                  </li>
-                  <li>
-                  <a href='wwmysql.html'>(4) Working with MYSQL </a>
-                  </li>
-                  <li>
-                  <a href='useflash.html'>(5) Using Flash </a>
-                  </li>
-                  <li>
-                  <a href='getandpost.html'>(6) GET and POST</a>
-                  <li>
-                  <a href='urlscontrolling.html'>(7) Urls Controlling</a>
-                  </li>
-                  </li>
-                </ul>
-        </li>
-              </div>
-            
-
-
            </div>
            
           </div>
@@ -195,9 +198,10 @@ getstartedwithdragonring() </pre><br>
 
     </p>
   </div>
-
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> uspreing a
     
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
@@ -213,15 +217,16 @@ getstartedwithdragonring() </pre><br>
   
 
 
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
 
+  
+   
   <script type="text/javascript">
-    $('.mynav').load('nav.html');
+    $('.mynav wy-nav-side').load('nav.html');
   </script>
    
 
