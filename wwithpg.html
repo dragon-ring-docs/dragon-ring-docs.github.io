@@ -51,7 +51,49 @@
           
 
           
-            <a href="#" class="icon icon-home"> Dragon-Ring
+             <a href="#" class="icon icon-home"> Dragon-Ring
+          <img src="images&Videos/icon.ico" alt="Dragon-Ring">
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+         
+         
+         
+         
           
 
           
@@ -62,7 +104,7 @@
             
             
               <div class="version">
-                1.0 (alpha)
+                2.0 (Beta)
               </div>
             
           
@@ -116,29 +158,40 @@
            <div itemprop="articleBody">
             
   <div class="section" id="welcome-to-read-the-docs">
-  <strong>(4) Working With Postgre Sql :-</strong><br>
+  <strong>(8) Working With Postgre Sql :-</strong><br>
   <strong>we will talk about :-</strong><br>
 
   <ul style="margin-top:4%;">
     <li>PGQuery().</li>
-    <li>pgadd2db().</li>
+    <li>PGadd2db().</li>
     <li>PGresult().</li>
     <li>PGdelete().</li>
     <li>pgupdatedb()</li>
 
   </ul>
-  <h2>Connect to PostgreSql :</h2>
-  <p>
-      (1) Create A new file name it dbconnection.ring (or any name you want)<br>
-      (2) in dbconnection.ring Set this variables values
+  <Strong>How To connect to PostgreSql Database:-</Strong>
+  <ul>
+    <li>
+      (1) Create An Object from Dragon-PostGreSql-Ext in the route.ring file :-<br>
+      <pre>oDPG = new DpG</pre>
+    </li>
+    <li>
+      (Or) Use Importlib(cLibName) in manage.ring file to import the lib to <br>
+          "Batch/ImportedLibs" file then load it in Route.ring file...
+    </li>
+    <li>
+      (2) Make Sure To Set This Connection Values Like<br>
+      <pre>oDPG = new DpG
+    oDPG{
+        pg_username = "postgres"
+        pg_password = " "
+        pg_database = "Dragon_ring"
+        pg_port     = "5432"
+        pg_conn     = NULL
+}</pre>
+    </li>
+  </ul>
     <br>
-    <pre style="background-color:yellow;">
-pg_username = "postgres"
-pg_password = "1234"
-pg_database = "Mohannad-Website"
-pg_port     = "5432"</pre>        
-  </p><br>
-  <p>After that load this file in the route.ring file</p>
   <p>PG --> means Postgre Sql</p>
   <br>
     <strong>PGQuery(Statement)</strong><br>
@@ -157,9 +210,16 @@ pg_port     = "5432"</pre>
     <p><pre style="background-color:yellow;">
 #!ring -cgi 
 load 'dragon-ring.ring'
-load 'dbconnection.ring'
 import system.Web
-PGADD2DB('employees(id , name , salary)' , [1, "Mohannad" , 1800] )</pre>
+oDPG = new DpG
+    oDPG{
+        pg_username = "postgres"
+        pg_password = " "
+        pg_database = "Dragon_ring"
+        pg_port     = "5432"
+        pg_conn     = NULL
+        PGADD2DB('employees(id , name , salary)' , [1, "Mohannad" , 1800] )
+        }</pre>
   <br>
 <strong>PGRESULT(select_statment).</strong><br>
 For example :-
@@ -167,8 +227,14 @@ For example :-
     <pre style="background-color:yellow;">
 #!ring -cgi 
 load 'dragon-ring.ring'
-load 'dbconnection.ring'
 import system.Web
+oDPG = new DpG
+    oDPG{
+        pg_username = "postgres"
+        pg_password = " "
+        pg_database = "Dragon_ring"
+        pg_port     = "5432"
+        pg_conn     = NULL
 /* This code has written in route.ring (just for testing) */
 res = PGRESULT('SELECT * From employees ;')
 for col=1 to len(res)
@@ -176,7 +242,8 @@ for col=1 to len(res)
         html(res[col][row] + TAB) 
     next
     html('&lt;br/&gt;')
-next</pre>
+next
+}</pre>
   </code>
 <strong>The result is :-</strong><br>
   <code style="width:100% .section;">
@@ -196,12 +263,18 @@ next</pre>
     <pre style="background-color:yellow;">
 #!ring -cgi 
 load 'dragon-ring.ring'
-load 'dbconnection.ring'
 import system.Web
+oDPG = new DpG
+    oDPG{
+        pg_username = "postgres"
+        pg_password = " "
+        pg_database = "Dragon_ring"
+        pg_port     = "5432"
+        pg_conn     = NULL
 /* This code has written in route.ring (just for testing) */
 PGDELETE('employees' , 'id' , 1 ) 
 /* This code will delete the id,name,salary from database for the employee id 1 */
-</pre>
+}</pre>
   </code>
   <strong>PGUPDATEDB(table_name,column_name,column_value,columns_names,columns_values)</strong>
   This function take five parameters :-
@@ -215,12 +288,19 @@ PGDELETE('employees' , 'id' , 1 )
     <pre style="background-color:yellow;">
 #!ring -cgi 
 load 'dragon-ring.ring'
-load 'dbconnection.ring'
 import system.Web
+oDPG = new DpG
+    oDPG{
+        pg_username = "postgres"
+        pg_password = " "
+        pg_database = "Dragon_ring"
+        pg_port     = "5432"
+        pg_conn     = NULL
 /* This code has written in route.ring (just for testing) */
 table_columns = [ "id" , "name" , "salary" ] 
 Table_values  = [ 2 , "Mohannad Aldulaimi" , 1700]
-PGUPDATEDB('employees', 'id' , 1 ,table_columns, Table_values)</pre>
+PGUPDATEDB('employees', 'id' , 1 ,table_columns, Table_values)
+}</pre>
   this function will make a sql statement like this :- 
   <br>
   (UPDATE 'employees' SET id=2 ,name="Mohannad Aldulaimi" , salary=1700 where id=1) 
