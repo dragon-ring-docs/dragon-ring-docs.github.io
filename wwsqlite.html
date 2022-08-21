@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Working With PostgreSql | Dragon-Ring</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="canonical" href="https://sphix.readthedocs.io/en/latest/index.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    
+  </style>
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="stylesheet" href="_static/css.css" type="text/css" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+             <a href="#" class="icon icon-home"> Dragon-Ring
+          <img src="images&Videos/icon.ico" alt="Dragon-Ring">
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+         
+         
+         
+         
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                2.0 (Beta)
+              </div>
+            
+          
+
+          
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+                  <div class="mynav">
+               
+             </div>
+        
+        </div>
+        
+      </div>
+    </nav>
+ 
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Dragon-Ring</a>
+        
+      </nav>
+<script type="text/javascript">
+    $('.mynav').load('nav.html');
+  </script>
+   
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+  
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Working With Sqlite</li>
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-read-the-docs">
+  <strong>(9) Working With Sqlite :-</strong><br>
+  <strong>we will talk about :-</strong><br>
+
+  <ul style="margin-top:4%;">
+    <li>Query().</li>
+    <li>add2db().</li>
+    <li>result().</li>
+    <li>delete().</li>
+    <li>update()</li>
+
+  </ul>
+  <h2>Connect to Sqlite :</h2>
+  <p>
+      (1) Add This line to Route.ring :- <br><pre>oDsqlite = new Dsqlite(c_DB_Namae)</pre> <br>
+      (2) You Can Find the db file in folder 'Databases'
+    <br> 
+  </p><br>
+  <p>After that You Can use this useful functions</p>
+  <p></p>
+  <br>
+    <strong>Query(Statement)</strong><br>
+    <p>This function take one parameter contain sql statement.</p>
+    <br>
+    <p>
+    <strong>ADD2DB(Table_name , Table_values).</strong><br>
+     <p>This function take two parameters as :-
+    <ul>
+      <li>Table_name :- the name of the table and tables columns if you want ...</li>
+    <li>Table_values :- list of values you want to add to PostgreSql database .</li>
+    </ul>
+    <br>
+    For example:-
+    </p>
+    <p><pre style="background-color:yellow;">
+#!ring  -cgi 
+load 'dragon-ring.ring'
+import system.Web
+oDsqlite = new Dsqlite(str2hex('My_test')+'.db')
+oDsqlite{
+  Query('Create Table Comp(
+  emp_id integer,
+  emp_name TEXT NOT NULL
+  );')	
+  add2db('Comp',[1,'Mohannad'])
+}</pre>
+  <br>
+<strong>RESULT(select_statment).</strong><br>
+For example :-
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+#!ring  -cgi 
+load 'dragon-ring.ring'
+import system.Web
+oDsqlite = new Dsqlite(str2hex('My_test')+'.db')
+oDsqlite{
+  res = Result('Select * from comp;')
+}</pre>
+  </code><br>
+<Strong>Or</Strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+#!ring  -cgi 
+load 'dragon-ring.ring'
+import system.Web
+aResult = []
+oDsqlite = new Dsqlite(str2hex('My_test')+'.db')
+oDsqlite{
+  res = 'Select * from comp;'
+  aResult = res
+}</pre>
+  </code>
+<strong>The result is :-</strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+      id        name       
+      1       Mohannad</pre>
+  </code><br>
+
+  <strong>DELETE(table_name , column_name , column_value).</strong>
+  <p>This function take three parameters :-</p>
+  <ul>
+    <li>table_name :- The name of the table .</li>
+    <li>column_name :- The parimary key column like ( id ) .</li>
+    <li>column_value :- The Value of the parimary key (column_name).</li>
+  </ul>
+  <code style="width:100% .section;">
+<pre style="background-color:yellow;">
+#!ring  -cgi 
+load 'dragon-ring.ring'
+import system.Web
+oDsqlite = new Dsqlite(str2hex('My_test')+'.db')
+oDsqlite{
+  Delete('comp','id',1)
+}</pre>
+  </code>
+  <strong>UPDATE(table_name,column_name,column_value,columns_names,columns_values)</strong>
+  This function take five parameters :-
+  <ul>
+    <li>table_name:- The name of the Table .</li>
+    <li>column_name :- the name of the column you want to update by .</li>
+    <li>column_value :-The Value of (column_name).</li>
+    <li>columns_names :- list of columns that you want to update.</li>
+    <li>columns_values :- list of values that you want to update (depending columns_names)</li>
+  </ul>
+    <pre style="background-color:yellow;">
+#!ring  -cgi 
+load 'dragon-ring.ring'
+import system.Web
+oDsqlite = new Dsqlite(str2hex('My_test')+'.db')
+oDsqlite{
+  Update('comp','id',1,['name'],'Mohannad Al-Dulaimi')
+}</pre>
+  this function will make a sql statement like this :- 
+  <br>
+  (UPDATE 'comp' SET name="Mohannad Aldulaimi"  where id=1) 
+  <br>
+    <p>I hope it was easy for you ...</p>
+  
+</div>
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+      <span class="commit">
+        
+        Dragon-Ring <code>2021-2022</code>.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> uspreing a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  <script type="text/javascript">
+    $('.mynav wy-nav-side').load('nav.html');
+  </script>
+   
+   
+
+</body>
+</html>

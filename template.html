@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Templates | Dragon-Ring</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="canonical" href="https://sphix.readthedocs.io/en/latest/index.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    
+  </style>
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="stylesheet" href="_static/css.css" type="text/css" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+         <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+             <a href="#" class="icon icon-home"> Dragon-Ring
+          <img src="images&Videos/icon.ico" alt="Dragon-Ring">
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+         
+         
+         
+         
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                2.0 (Beta)
+              </div>
+            
+          
+
+          
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+                  <div class="mynav">
+               
+             </div>
+        
+        </div>
+        
+      </div>
+    </nav>
+ 
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Dragon-Ring</a>
+        
+      </nav>
+<script type="text/javascript">
+    $('.mynav').load('nav.html');
+  </script>
+   
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+  
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Templates</li>
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-read-the-docs">
+  <strong>(2) Templates :-</strong><br>
+  <strong>we will talk about :-</strong><br>
+
+  <ul style="margin-top:4%;">
+    <li>Templates Functions .</li>
+    <li>Using Templates .</li>
+    <li>Create Template Application.</li>
+
+  </ul>
+  <br>
+    <strong>Templates Functions</strong><br>
+    <p>Note: The templates functions read file from this path 'website/templates' </p>
+    <p>We have a different functions for templates :-</p>
+    <br>
+    <h2>(1) Template(html_Page_name,Object)</h2><br>
+    <p>To use this functions you have to create a controller for the html page you want to use .
+    <strong>In the route.ring we have this code</strong><br>  
+    <pre style="background-color:yellow;">
+#!ring -cgi 
+load 'dragon-ring.ring'
+import system.Web
+app.route('HelloWorld',:ringfile,"hello.ring")</pre>
+  <br>
+<strong>In the hello.ring we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+import system.Web
+dring{
+        html(template('hello.html',null))
+     }</pre>  
+  </code><br>
+<strong>In the hello.html we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+&lt;h1&gt;Hello World From Template .&lt;/h1&gt;</pre>
+  </code><br>
+  The Page source is :- <br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="ISO-8859-1"&gt; 
+&lt;meta charset="utf-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+&lt;meta name="description" content=""&gt;
+&lt;meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors"&gt;
+&lt;meta name="generator" content="Jekyll v4.1.1"&gt;
+&lt;link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css"&gt;
+&lt;script type="text/javascript" src="bootstrap/jq.js"&gt;$(document).ready();
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello World From Template .&lt;/h1&gt;
+&lt;/body&gt;
+&lt;script type="text/javascript" src="bootstrap/bootstrap.js"&gt;
+&lt;/script&gt;
+&lt;/html&gt;</pre>
+  </code><br>
+  as you can see we have called the bootstrap and j-Query localy .<br>
+  Note:- We will learn how to use templates after we know the template functions .<br>
+  <h2>(2) Template_Exe(html_Page_name)</h2><br> 
+  It can be used Like the function template()...<br> 
+  the difference between template() and template_exe() is the template_exe do not need an Object to execute codes ,So it need one parameter contain the html page name. 
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+import system.Web
+dring{
+        html(template_exe('hello.html'))
+     }</pre>
+  </code><br>
+    <h2>(3) website_template(html_Page_name,Object)</h2><br>
+    We will talk about this function after version 1.0 ...
+    <br>
+     <strong>Using Templates </strong><br>
+     Now We will learn how to use templates.<br>
+     <code style="width:100% .section;">
+<div style="background-color:yellow;">
+{%= Ring Expression %}<br>
+{%  Ring Statements %}
+    </div>
+  </code><br>
+  <h2> Create Template Application.</h2><br>
+    <strong>In the route.ring we have this code</strong><br>  
+    <pre style="background-color:yellow;">
+#!ring -cgi 
+load 'dragon-ring.ring'
+import system.Web
+app.route('test_template',:ringfile,"test_template.ring")</pre>
+  <br>
+<strong>In the test_template.ring we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+import system.Web
+new test_template{start()} 
+class test_template
+   name = "Mohannad"
+   func start
+   dring{
+   html(template('test_template.html',this))
+     }</pre>
+  </code><br>
+<strong>In the test_template.html we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+&lt;h1&gt;Hello World From Template .&lt;/h1&gt;
+{% for x in 1:5 %}
+&lt;h1&gt;Hello {%=name + ' ' + x %}&lt;/h1&gt;&lt;br/&gt;
+{% next %}</pre>
+  </code><br>
+<strong>The Page source :-</strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+&lt;h1&gt;Hello World From Template .&lt;/h1&gt;
+&lt;h1&gt;Hello Mohannad 1&lt;/h1&gt;&lt;br/&gt;
+&lt;h1&gt;Hello Mohannad 2&lt;/h1&gt;&lt;br/&gt;
+&lt;h1&gt;Hello Mohannad 3&lt;/h1&gt;&lt;br/&gt;
+&lt;h1&gt;Hello Mohannad 4&lt;/h1&gt;&lt;br/&gt;
+&lt;h1&gt;Hello Mohannad 5&lt;/h1&gt;&lt;br/&gt;</pre>
+  </code><br>
+  <h2>Another example About Create Template Application.</h2><br>
+    <strong>In the route.ring we have this code</strong><br>  
+    <pre style="background-color:yellow;">
+#!ring -cgi 
+load 'dragon-ring.ring'
+import system.Web
+app.route('test_template',:ringfile,"test_template.ring")</pre>
+  <br>
+<strong>In the test_template.ring we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+import system.Web
+   dring{
+   html(template_exe('test_template.html'))
+     }</pre>
+  </code><br>
+<strong>In the test_template.html we have this code</strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+&lt;h1&gt;Hello World From Template .&lt;/h1&gt;
+{% for x in 1:5 %}
+&lt;h1&gt;Hello {%=x %}&lt;/h1&gt;&lt;br/&gt;
+{% next %}</pre>
+  </code><br>
+<strong>The Page source :-</strong><br>
+  <code style="width:100% .section;">
+    <pre style="background-color:yellow;">
+&lt;h1&gt;Hello World From Template .&lt;/h1&gt;
+&lt;h1&gt;Hello 1&lt;/h1&gt;&lt;br/&gt;
+&lt;h1&gt;Hello 2&lt;/h1&gt;&lt;br/&gt;
+&lt;h1&gt;Hello 3&lt;/h1&gt;&lt;br/&gt;
+&lt;h1&gt;Hello 4&lt;/h1&gt;&lt;br/&gt;
+&lt;h1&gt;Hello 5&lt;/h1&gt;&lt;br/&gt;</pre>
+  </code><br>
+
+
+
+  <br>
+  We will make a CRUD Application After we learn how to use Mysql with Dragon-Ring. 
+    </p>
+    
+    <p>I hope it was easy for you ...</p>
+  
+</div>
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+      <span class="commit">
+        
+        Dragon-Ring <code>2021-2022</code>.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> uspreing a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+    <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  <script type="text/javascript">
+    $('.mynav wy-nav-side').load('nav.html');
+  </script>
+   
+   
+
+</body>
+</html>
